@@ -1,0 +1,44 @@
+{
+    "name": "hedera-did-node-service",
+    "version": "0.0.1",
+    "description": "Express server for hedera decentralized identity communication.",
+    "scripts": {
+        "start": "npm run db:migrate && node src/app.js",
+        "watch": "nodemon src/app.js",
+        "db:create": "node scripts/db.js create",
+        "db:drop": "node scripts/db.js drop",
+        "db:migrate": "knex migrate:latest",
+        "test": "export NODE_ENV=test && mocha --recursive --colors",
+        "test:coverage": "export NODE_ENV=test && nyc mocha --recursive --colors",
+        "lint": "standard *.js",
+        "lint:fix": "standard ./src/**/*.js --fix"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mstark5652/hedera-did-node-service.git"
+    },
+    "author": "mstark5652",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "chai-http": "^4.3.0",
+        "dirty-chai": "^2.0.1",
+        "faker": "^4.1.0",
+        "http-server": "^0.12.1",
+        "mocha": "^6.2.0",
+        "nodemon": "^1.19.2",
+        "nyc": "^14.1.1",
+        "sinon": "^7.4.2",
+        "sinon-chai": "^3.3.0",
+        "standard": "^14.1.0"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cookie-parser": "^1.4.5",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "helmet": "^3.21.0",
+        "uuid": "^3.3.3"
+    }
+}
