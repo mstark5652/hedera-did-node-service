@@ -49,7 +49,7 @@ app.use((err, req, res, next) => {
 
 if (module === require.main) {
   // Start the server
-  const server = app.listen(process.env.PORT, () => {
+  const server = app.listen(process.env.PORT || 3000, () => {
     const port = server.address().port
     console.log(`App listening on port ${port}`)
   })
