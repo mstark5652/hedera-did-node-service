@@ -1,3 +1,19 @@
+
+class UnauthorizedError {
+  constructor (message) {
+    this.name = 'UnauthorizedError'
+    this.statusCode = 401
+    this.message = message
+  }
+}
+
+class ForbiddenError {
+  constructor (message) {
+    this.name = 'ForbiddenError'
+    this.statusCode = 403
+    this.message = message
+  }
+}
 class NotFoundError {
   constructor (message) {
     this.name = 'NotFoundError'
@@ -26,5 +42,7 @@ class BadRequestError {
 module.exports = {
   NotFoundError,
   ValidationError,
-  BadRequestError
+  BadRequestError,
+  UnauthorizedError,
+  ForbiddenError
 }
