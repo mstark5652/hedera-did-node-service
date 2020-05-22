@@ -11,7 +11,7 @@ const requestTime = (req, res, next) => {
   next()
 }
 
-module.exports = {
+module.exports = [
   ip,
   requestTime
-}
+]

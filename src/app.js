@@ -28,30 +28,28 @@ app.use(...customMiddleware)
 
 app.use('/', require('./routes'))
 
-app.get('/auth**', (req, res) => {
-  return res.render('index', options.authStatic)
-})
-
-app.get('/**', (req, res, next) => {
-  return res.render('index', options.siteConfig)
+app.get('/', (req, res, next) => {
+  return res.json({
+    message: 'Welcome to did service.'
+  })
 })
 
 // Basic error handler
 app.use((err, req, res, next) => {
   // If our routes specified a specific response, then send that. Otherwise,
   // send a generic message so as not to leak anything.
-  if (!options.production) {
+  if (process.env.NODE_ENV !== 'production') {
     console.error('An error occurred.', err)
   }
 
-  const message = options.production ? 'Something broke!' : (err.message || err.response)
+  const message = process.env.NODE_ENV === 'production' ? 'Something broke!' : (err.message || err.response)
   const statusCode = err.statusCode || 500
   res.status(statusCode).send(message)
 })
 
 if (module === require.main) {
   // Start the server
-  const server = app.listen(options.port, () => {
+  const server = app.listen(process.env.PORT, () => {
     const port = server.address().port
     console.log(`App listening on port ${port}`)
   })

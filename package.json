@@ -3,11 +3,8 @@
     "version": "0.0.1",
     "description": "Express server for hedera decentralized identity communication.",
     "scripts": {
-        "start": "npm run db:migrate && node src/app.js",
+        "start": "node src/app.js",
         "watch": "nodemon src/app.js",
-        "db:create": "node scripts/db.js create",
-        "db:drop": "node scripts/db.js drop",
-        "db:migrate": "knex migrate:latest",
         "test": "export NODE_ENV=test && mocha --recursive --colors",
         "test:coverage": "export NODE_ENV=test && nyc mocha --recursive --colors",
         "lint": "standard *.js",
