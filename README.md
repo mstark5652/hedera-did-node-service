@@ -1,7 +1,7 @@
 # hedera-did-node-service
 
 ## Overview
-Node service shell to provide basic operations with the hedera network for decentralized identity.
+Node service shell to provide basic operations with the hedera network for decentralized identity. Based on did-method specification found [here](https://github.com/hashgraph/did-method/blob/master/did-method-specification.md).
 
 
 ## Environment Variables
